@@ -1,37 +1,41 @@
-<div id="mango-viewport-irvine" style="width:100%; height:100%; overflow:hidden; position:relative; background:white;">
-    <iframe id="trumba-frame-irvine" name="trumba-frame-irvine" style="width: 100%; height: 100%; border: none; position: absolute; top: 0px; left: 0px;" src="about:blank"></iframe>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>25Live SPUD</title>
 
-<script>
-(function() {
-    const frame = document.getElementById('trumba-frame-irvine');
-    if (!frame) return;
-    const doc = frame.contentWindow.document;
+  <script type="text/javascript" src="https://25livepub.collegenet.com/scripts/spuds.js"></script>
+  <script type="text/javascript">
+  $Trumba.addSpud({
+  webName: "irvine-events-non-class",
+  spudType : "main" 
+  });
+  </script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: white;
+      overflow: hidden;
+    }
+    #calendar-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
 
-    const trumbaHtml = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <base target="_blank">
-        <style>
-            body { margin:0; padding:0; font-family:sans-serif; background:white; overflow:hidden; }
-            .twHeader, .twHeaderRow, thead { position: sticky !important; top: 0 !important; background: white !important; z-index: 1000 !important; }
-            .trumba-logo, .trumba-footer, .twNav, .twViewNav { display:none !important; }
-        </style>
-    </head>
-    <body>
-        <script type="text/javascript" src="//25livepub.collegenet.com/scripts/spuds.js"><\/script>
-        <script type="text/javascript">
-            $Trumba.addSpud({
-                webName: "irvine-events-non-class",
-                spudType: "main"
-            });
-        <\/script>
-    </body>
-    </html>`;
+<body>
+  <div id="calendar-container"></div>
 
-    doc.open();
-    doc.write(trumbaHtml);
-    doc.close();
-})();
-</script>
+  <script>
+    $Trumba.addSpud({
+      webName: "irvine-events-non-class",
+      spudType: "main",
+      spudContainer: "calendar-container"
+    });
+  </script>
+</body>
+</html>
